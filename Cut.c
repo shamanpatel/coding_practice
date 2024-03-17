@@ -41,3 +41,17 @@ int main() {
 
     return 0;
 }
+// shaman@devdsk:~/workspace/coding_practice$ gcc Cut.c -o Cut
+// shaman@devdsk:~/workspace/coding_practice$ ./Cut
+// Enter the input string: Sachi Sagarkumar Patel
+// From index: 0
+// To index: 20
+// Input String: Sachi Sagarkumar Patel
+// Range(0-20): Sachi Sagarkumar Pate
+// shaman@devdsk:~/workspace/coding_practice$ gcc Cut.c -o Cut
+// shaman@devdsk:~/workspace/coding_practice$ ./Cut
+// Enter the input string: Sachi Patel
+// From index: 0
+// To index: 0
+// Input String: Sachi Patel
+// 0:S
