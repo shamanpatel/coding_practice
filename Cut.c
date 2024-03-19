@@ -2,51 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 
-void cut_bytes(const char *input, int start, int end) {
-    int length = strlen(input);
+void split_and_print(const char *input, char delimiter, int field_num) {
+    char *token = strtok((char *)input, &delimiter); // Splitting the input based on the delimiter
 
-    if (start < 0 || start >= length || end < 0 || end >= length || start > end) {
-        printf("Invalid range, enter correct range.\n");
-        return;
+    int count = 0;
+    while (token != NULL && count < field_num) {
+        // Trim leading spaces
+        char *trimmed_token = token;
+        while (*trimmed_token == ' ')
+            trimmed_token++;
+        
+        printf("%s\n", trimmed_token);
+        token = strtok(NULL, &delimiter);
+        count++;
     }
-
-    for (int i = start; i <= end; i++) {
-        printf("%c", input[i]);
-    }
-    printf("\n");
 }
 
 int main() {
     char input[100];
-    int start, end;
-    char ranges[50]; 
+    char delimiter;
+    int field_num;
 
     printf("Enter the input string: ");
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = '\0';
-    printf("Enter the ranges from start1-end1,start2-end2,...): ");
-    fgets(ranges, sizeof(ranges), stdin);
 
-    // Replace '\n' with '\0' to remove newline character
-    ranges[strcspn(ranges, "\n")] = '\0';
+    printf("Enter the delimiter character: ");
+    scanf(" %c", &delimiter); // Note the space before %c to consume any preceding whitespace
+    getchar(); // Clearing the input buffer
 
-    // strtok() is used to delimit the string into substrings. Here the delimiter is ','.
-    char *token = strtok(ranges, ",");
-    while (token != NULL) {
-        // sscanf is uded to parse the token ranges.
-        sscanf(token, "%d-%d", &start, &end);
+    printf("Enter the field number: ");
+    scanf("%d", &field_num);
 
-        if (start == end) {
-            printf("Input String: %s\n", input);
-            printf("%d:%c\n", start, input[start]);
-        } else {
-            printf("Input String: %s\n", input);
-            printf("Range(%d-%d): ", start, end);
-            cut_bytes(input, start, end);
-        }
-
-        token = strtok(NULL, ","); // Move to the next token
-    }
+    printf("Substrings:\n");
+    split_and_print(input, delimiter, field_num);
 
     return 0;
 }
