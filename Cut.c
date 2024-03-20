@@ -39,3 +39,32 @@ int main() {
 
     return 0;
 }
+// shaman@devdsk:~/workspace/coding_practice$ gcc Cut.c -o Cut
+// shaman@devdsk:~/workspace/coding_practice$ ./Cut
+// Enter the input string: Shaman, patel, is, a, good person. He, is, a, good, student at seattle university.
+// Enter the delimiter character: ,
+// Enter the field number: 5
+// Substrings:
+// Shaman
+// patel
+// is
+// a
+// good person. He
+// shaman@devdsk:~/workspace/coding_practice$ gcc Cut.c -o Cut
+// shaman@devdsk:~/workspace/coding_practice$ ./Cut
+// Enter the input string: Shaman, patel, is, a, good person. He, is, a, good, student at seattle university.
+// Enter the delimiter character: ,
+// Enter the field number: 4
+// Substrings:
+// Shaman
+// patel
+// is
+// a
+// shaman@devdsk:~/workspace/coding_practice$ gcc Cut.c -o Cut
+// shaman@devdsk:~/workspace/coding_practice$ ./Cut
+// Enter the input string: Shaman, patel, is, a, good person. He, is, a, good, student at seattle university.
+// Enter the delimiter character: .
+// Enter the field number: 2
+// Substrings:
+// Shaman, patel, is, a, good person
+// He, is, a, good, student at seattle university
